@@ -1,0 +1,18 @@
+{{ $enableTOC := .Params.toc | default .Site.Params.enableTOC -}}
+{{- if $enableTOC -}}
+<div class="sidebar">
+	<div class="sidebar-toc">
+		<h4 class="sidebar-header">- 目次 -</h4>
+		{{- .TableOfContents -}}
+	</div>
+</div>
+
+<div class="sidebar-menu" onclick="toggleMenu()">☰</div>
+<div class="overlay" onclick="closeMenu()"></div>
+<div class="sidebar-mobile">
+	<div class="sidebar-mobile-toc">
+		<h4 class="sidebar-header">- 目次 -</h4>
+		{{- .TableOfContents -}}
+	</div>
+</div>
+{{- end -}}

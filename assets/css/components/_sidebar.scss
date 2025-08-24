@@ -1,0 +1,66 @@
+.sidebar {
+	float: right;
+}
+.sidebar-toc {
+	position: fixed;
+	top: 3rem;
+	right: 2rem;
+}
+
+// ハンバーガーメニューを表示している間は、背景を暗くする。
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	display: none;
+	z-index: 1000;
+}
+.overlay.show {
+	display: block;
+}
+
+.sidebar-menu {
+	position: fixed;
+	top: 1rem;
+	right: 1rem;
+	font-size: 2rem;
+	cursor: pointer;
+	z-index: 1001;
+}
+.sidebar-mobile {
+	position: fixed;
+	top: 1rem;
+	right: -18rem; /* 初期状態は画面外 */
+	width: 18rem;
+	height: 100%;
+	padding: 20px;
+	box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+	background-color: #353b43;
+	transition: right 0.3s ease;
+	z-index: 1002;
+}
+.sidebar-mobile.open {
+	right: 0;
+}
+
+// 目次は、画面サイズ大きい時には常時表示にする。
+// 画面小さくなったら、ハンバーガーメニューを表示。
+@media screen and (min-width: 1750px) {
+	.sidebar {
+		display: block;
+	}
+	.sidebar-menu {
+		display: none;
+	}
+}
+@media screen and (max-width: 1750px) {
+	.sidebar {
+		display: none;
+	}
+	.sidebar-menu {
+		display: block;
+	}
+}

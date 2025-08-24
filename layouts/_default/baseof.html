@@ -8,14 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="{{ .Site.Params.author | default "John Doe" }}" />
     <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Description }}{{ end }}" />
-    {{ $style := resources.Get "css/main.scss" | resources.ExecuteAsTemplate "css/main.scss" . | resources.ToCSS | resources.Minify | resources.Fingerprint -}}
+    {{ $style := resources.Get "css/main.scss" | resources.ExecuteAsTemplate "css/main.scss" . | css.Sass | resources.Minify | resources.Fingerprint -}}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
+    
+    {{- $sidebarJs := resources.Get "js/sidebar.js" | resources.Minify }}
+    <script src="{{ $sidebarJs.RelPermalink }}"></script>
 
     {{ template "_internal/google_analytics.html" . }}
     {{ template "_internal/twitter_cards.html" . }}
     {{ template "_internal/opengraph.html" . }}
-
   </head>
+
   <body>
     <header class="app-header">
       <a href="{{ .Site.BaseURL }}"><img class="app-header-avatar" src="{{ .Site.Params.avatar | default "avatar.jpg" | relURL }}" alt="{{ .Site.Params.author | default "John Doe" }}" /></a>
@@ -30,7 +33,7 @@
         {{- end }}
       </nav>
       {{- end }}
-      <p>{{ .Site.Params.description | default "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium." }}</p>
+      <p>{{ .Site.Params.description | default "kemokemo blog" }}</p>
       {{- with .Site.Params.social }}
       <div class="app-header-social">
         {{ range . }}
@@ -41,10 +44,14 @@
       </div>
       {{- end }}
     </header>
+
     <main class="app-container">
       {{ block "main" . }}
         {{ .Content }}
       {{ end }}
     </main>
+
+    {{ partial "custom/sidebar.html" . }}
   </body>
+
 </html>
