@@ -7,7 +7,7 @@ const toggleMenu = () => {
 }
 
 const closeMenu = () => {
-  document.querySelector(".sidebar-mobile").classList.remove("open");
+  document.querySelector(".sidebar-mobile").classList.remove("open")
   document.querySelector(".overlay").classList.remove("show")
 }
 
@@ -26,12 +26,12 @@ document.addEventListener("click", (event) => {
 })
 
 document.addEventListener("DOMContentLoaded", () => {
-  const menuLinks = document.querySelectorAll('.sidebar-mobile a[href^="#"]');
+  const menuLinks = document.querySelectorAll('.sidebar-mobile a[href^="#"]')
 
   menuLinks.forEach((link) => {
     link.addEventListener("click", () => {
-      document.querySelector(".sidebar-mobile")?.classList.remove("open");
-      document.querySelector(".overlay")?.classList.remove("show");
+      document.querySelector(".sidebar-mobile")?.classList.remove("open")
+      document.querySelector(".overlay")?.classList.remove("show")
     });
   });
 });

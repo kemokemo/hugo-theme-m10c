@@ -1,5 +1,8 @@
 .post-title {
   color: $lightest-color;
+  font-size: 2rem;
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
 }
 
 .post-meta > div {
@@ -16,6 +19,7 @@
   & > pre,
   .highlight {
     margin: 1em 0;
+    position: relative;
   }
 
   & > pre,

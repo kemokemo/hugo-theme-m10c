@@ -33,8 +33,6 @@ a {
 // the very noticeable difference in x-height). This CSS corrects that problem.
 code {
   font-family: monospace,monospace;
-  font-size: 1em;
-  color: rgba($light-color, .8);
 
   // Fixes iOS font sizing anomaly
   text-size-adjust: 100%;
@@ -43,8 +41,20 @@ code {
   -webkit-text-size-adjust: 100%;
 }
 
+/* code element without class attribute */
+code:not([class]) {
+  font-size: .9em;
+  color: rgba($light-color, .85);
+
+  // referenced the Zenn site style
+  padding: .2em .4em;
+  margin: 0 .2em;
+  background: #ccdff7;
+  border-radius: 4px;
+}
+
 pre {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   line-height: 1em;
   margin: 0;
   overflow: auto;

@@ -1,0 +1,48 @@
+.highlight pre {
+	/* Avoid pushing up the copy buttons. */
+	margin: 0;
+}
+
+.copy-code-button {
+	position: absolute;
+	top: 0;
+	right: 0;
+
+	// アイコンボタン化するための設定
+	background: none; /* 背景を消す */
+	border: none;     /* 枠線を消す */
+	padding: 0;       /* 余白をなくす */
+	margin: .5rem;
+	cursor: pointer;
+	display: inline-block; /* レイアウト調整しやすく */
+}
+.copy-code-button img {
+	display: block;
+}
+.copy-code-button img:hover {
+	opacity: 0.8;
+	border-color: #272822;
+}
+
+.tooltip {
+	position: absolute;
+	top: -1.9rem;
+	right: 0;
+
+	background-color: #857e8b;
+	color: #f1f4f4;
+	padding: 8px 12px;
+	border-radius: 4px;
+	font-size: .8rem;
+	white-space: nowrap;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+	transition: opacity 0.3s ease;
+	opacity: 0;
+	pointer-events: none;
+}
+.tooltip.visible {
+	opacity: 1;
+}
+.hidden {
+	display: none;
+}
