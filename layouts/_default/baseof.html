@@ -12,8 +12,9 @@
     <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
     
     {{- $sidebarJs := resources.Get "js/sidebar.js" | resources.Minify }}
-    {{- $sidebarJs := resources.Get "js/code.js" | resources.Minify }}
+    {{- $codeJs := resources.Get "js/code.js" | resources.Minify }}
     <script src="{{ $sidebarJs.RelPermalink }}"></script>
+    <script src="{{ $codeJs.RelPermalink }}"></script>
 
     {{ template "_internal/google_analytics.html" . }}
     {{ template "_internal/twitter_cards.html" . }}
