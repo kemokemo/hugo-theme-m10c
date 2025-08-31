@@ -5,7 +5,7 @@ const addCopyButtons = (clipboard) => {
     button.type = "button"
     
     var img = document.createElement("img")
-    img.src = window.location.href + "../../content_copy.svg"
+    img.src = window.location.origin + window.location.pathname + "../../content_copy.svg"
     button.appendChild(img)
 
     var tooltip = document.createElement("span")
