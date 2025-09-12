@@ -21,9 +21,11 @@ a {
   color: $primary-color;
   transition: color 0.35s;
   text-decoration: none;
+  margin: 0 0.3em; /* 左右に0.3emの余白を追加 */
 
   &:hover {
     color: $lightest-color;
+    text-decoration: underline;
   }
 }
 
